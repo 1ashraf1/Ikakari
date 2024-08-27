@@ -20,19 +20,19 @@ int main(int argc, char const *argv[])
     cout << "Enter second fraction \t";
     cin >> f2_num >> dummy >> f2_den;
 
-    cout << "adding fractions results in \t";
+    cout << "\n adding fractions results in \t";
     add_fractions(f1_num, f1_den, f2_num, f2_den);
     display_result();
 
-    cout << "subtracting fractions results in \t";
+    cout << "\n subtracting fractions results in \t";
     sub_fractions(f1_num, f1_den, f2_num, f2_den);
     display_result();
 
-    cout << "multiplying fractions results in \t";
+    cout << "\n multiplying fractions results in \t";
     multiply_fractions(f1_num, f1_den, f2_num, f2_den);
     display_result();
 
-    cout << "dividing fractions results in \t";
+    cout << "\n dividing fractions results in \t";
     divide_fractions(f1_num, f1_den, f2_num, f2_den);
     display_result();
 
