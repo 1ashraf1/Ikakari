@@ -1,0 +1,74 @@
+#include<iostream>
+using namespace std;
+
+class Fraction {
+    // member functions
+public:
+    // Default constructor
+    Fraction() {
+        numerator = 2;
+        denominator = 5;
+    }
+
+    // Constructor with parameters
+    Fraction(int n, int d) {
+        numerator = n;
+        denominator = d;
+    }
+
+    // Setter function to assign values to the numerator and denominator
+    void setValues(int num, int denom) {
+        numerator = num;
+        denominator = denom;
+    }
+
+    // Function to print the fraction
+    void print() const {
+        cout << numerator << "/" << denominator << endl;
+    }
+
+    // Function to add two fractions
+    Fraction add(const Fraction& other) const {
+        Fraction result;
+        result.numerator = numerator * other.denominator + other.numerator * denominator;
+        result.denominator = denominator * other.denominator;
+        return result;
+    }
+
+    // Function to subtract two fractions
+    Fraction subtract(const Fraction& other) const {
+        Fraction result;
+        result.numerator = numerator * other.denominator - other.numerator * denominator;
+        result.denominator = denominator * other.denominator;
+        return result;
+    }
+
+    // Function to multiply two fractions
+    Fraction multiply(const Fraction& other) const {
+        Fraction result;
+        result.numerator = numerator * other.numerator;
+        result.denominator = denominator * other.denominator;
+        return result;
+    }
+
+    // Function to divide two fractions
+    Fraction divide(const Fraction& other) const {
+        Fraction result;
+        result.numerator = numerator * other.denominator;
+        result.denominator = denominator * other.numerator;
+        return result;
+    }
+
+private:
+    // Data members
+    int numerator;
+    int denominator;
+};
+
+int main() {
+    // Creating fractions using different constructors
+    Fraction f1;
+    f1.print();  // Default constructor: prints 2/5
+    
+    Fraction f2(3, 4);
+    f2.print();  // Parameter
