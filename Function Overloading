@@ -1,0 +1,97 @@
+#include <iostream>
+#include <cmath> // for sqrt
+using namespace std;
+
+class Point
+{
+protected:
+    int x, y;
+
+public:
+    Point() : x(0), y(0) {} // zero argument constructor
+
+    // overloading constructors
+    Point(int xval, int yval) : x(xval), y(yval) {}
+
+    void setX(int xval)
+    {
+        x = xval;
+    }
+
+    void setY(int yval)
+    {
+        y = yval;
+    }
+
+    int getX() const
+    {
+        return x;
+    }
+
+    int getY() const
+    {
+        return y;
+    }
+
+    void showPoint() const
+    {
+        cout << "x = " << x << ", y = " << y << endl;
+    }
+
+    // Distance from the origin
+    double distance() const
+    {
+        return sqrt(x * x + y * y);
+    }
+
+    // Distance between two points
+    double distance(const Point& other) const
+    {
+        int dx = x - other.x;
+        int dy = y - other.y;
+        return sqrt(dx * dx + dy * dy);
+    }
+
+    // Midpoint between the point and the origin
+    Point midpoint() const
+    {
+        return Point(x / 2, y / 2);
+    }
+
+    // Midpoint between two points
+    Point midpoint(const Point& other) const
+    {
+        int midX = (x + other.x) / 2;
+        int midY = (y + other.y) / 2;
+        return Point(midX, midY);
+    }
+};
+
+int main()
+{
+    Point p1;
+    Point p2(2, 4);
+    Point p3 = p2; // default copy constructor
+
+    cout << "p1: ";
+    p1.showPoint();
+    cout << "p2: ";
+    p2.showPoint();
+    cout << "p3: ";
+    p3.showPoint();
+
+    // Testing distance functions
+    cout << "Distance of p2 from origin: " << p2.distance() << endl;
+    cout << "Distance between p2 and p3: " << p2.distance(p3) << endl;
+
+    // Testing midpoint functions
+    Point mid1 = p2.midpoint();
+    cout << "Midpoint between p2 and origin: ";
+    mid1.showPoint();
+
+    Point mid2 = p2.midpoint(p3);
+    cout << "Midpoint between p2 and p3: ";
+    mid2.showPoint();
+
+    return 0;
+}
